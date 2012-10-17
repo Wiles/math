@@ -34,7 +34,7 @@ ab = 32.0
 bb = -0.1
 cb = 42.0
 db = -4.9
-interval = 0.1
+interval = 0.01
 
 plt.subplot(111)
 
