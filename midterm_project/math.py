@@ -30,9 +30,9 @@ def do_quadratic(a, b, c):
 def update(val):
     do_math(interval, val, ab, bb, cb, db)
 
-ab = 32.0
+ab = 35.0
 bb = -0.1
-cb = 42.0
+cb = 48.0
 db = -4.9
 interval = 0.01
 
@@ -44,7 +44,7 @@ plt.xlim(-10, 300)
 plt.ylim(-10, 300)
 
 plt.xlabel('Distance')
-plt.xlabel('Height')
+plt.ylabel('Height')
 plt.title('Golf Ball Flight')
 plt.grid(True)
 plt.legend()
