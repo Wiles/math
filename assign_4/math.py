@@ -25,7 +25,7 @@ if __name__ == "__main__":
     print "n = " + str(n)
     at = trapezoidal_rule(lambda x: (math.sqrt(x ** 2 + 4)), 0.0, 1.0, n)
 
-    #print table.draw()
+    print table.draw()
 
     def area(x, a):
         return ((x/2) * math.sqrt(x **2 + a ** 2)) + (((a ** 2)/2) * math.log(x + math.sqrt(x ** 2 + a ** 2)))
