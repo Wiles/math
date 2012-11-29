@@ -1,6 +1,10 @@
 from mpl_toolkits.mplot3d import Axes3D
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+from matplotlib.colors import colorConverter
 import matplotlib.pyplot as plt
+
+cc = lambda arg: colorConverter.to_rgba(arg, alpha=1.0)
+
 fig = plt.figure()
 ax = Axes3D(fig)
 ax.set_xlim(0, 10)
@@ -17,14 +21,22 @@ v = [
     (3,1,2),#6
     (0,1,2) #7
 ]
-def draw_rectangular_prism(v):
-    ax.add_collection3d(Poly3DCollection([v[:4]]))
-    ax.add_collection3d(Poly3DCollection([v[4:]]))
-    ax.add_collection3d(Poly3DCollection([[v[0], v[3], v[7], v[4]]]))
-    ax.add_collection3d(Poly3DCollection([[v[0], v[4], v[5], v[1]]]))
-    ax.add_collection3d(Poly3DCollection([[v[3], v[7], v[6], v[2]]]))
-    ax.add_collection3d(Poly3DCollection([[v[1], v[5], v[6], v[2]]]))
+def draw_rectangular_prism(v, col):
+    ax.add_collection3d(Poly3DCollection([v[:4]], facecolors = [cc(col)]))
+    ax.add_collection3d(Poly3DCollection([v[4:]], facecolors = [cc(col)]))
+    ax.add_collection3d(Poly3DCollection([[v[0], v[3], v[7], v[4]]], facecolors = [cc(col)]))
+    ax.add_collection3d(Poly3DCollection([[v[0], v[4], v[5], v[1]]], facecolors = [cc(col)]))
+    ax.add_collection3d(Poly3DCollection([[v[3], v[7], v[6], v[2]]], facecolors = [cc(col)]))
+    ax.add_collection3d(Poly3DCollection([[v[1], v[5], v[6], v[2]]], facecolors = [cc(col)]))
     
-draw_rectangular_prism(v)
+def rotate_rectangular_prism(v, deg):
+    return v
+
+def translate_rectangular_prism(v, x, y, z):
+    return v
+    
+draw_rectangular_prism(v, 'r')
+
+
 
 plt.show()
