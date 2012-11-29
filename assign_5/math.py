@@ -33,10 +33,10 @@ def rotate_rectangular_prism(v, deg):
     return v
 
 def translate_rectangular_prism(v, x, y, z):
-    return v
+    return [[e[0] + x, e[1] + y, e[2] + z] for e in v]
     
 draw_rectangular_prism(v, 'r')
 
-
+draw_rectangular_prism(translate_rectangular_prism(rotate_rectangular_prism(v, 60), 2, 4, 1), 'b')
 
 plt.show()
