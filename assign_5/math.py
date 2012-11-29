@@ -21,6 +21,7 @@ v = [
     (3,1,2),#6
     (0,1,2) #7
 ]
+
 def draw_rectangular_prism(v, col):
     ax.add_collection3d(Poly3DCollection([v[:4]], facecolors = [cc(col)]))
     ax.add_collection3d(Poly3DCollection([v[4:]], facecolors = [cc(col)]))
@@ -29,7 +30,7 @@ def draw_rectangular_prism(v, col):
     ax.add_collection3d(Poly3DCollection([[v[3], v[7], v[6], v[2]]], facecolors = [cc(col)]))
     ax.add_collection3d(Poly3DCollection([[v[1], v[5], v[6], v[2]]], facecolors = [cc(col)]))
     
-def rotate_rectangular_prism(v, deg):
+def rotate_rectangular_prism(v, deg, vert):
     return v
 
 def translate_rectangular_prism(v, x, y, z):
@@ -37,6 +38,6 @@ def translate_rectangular_prism(v, x, y, z):
     
 draw_rectangular_prism(v, 'r')
 
-draw_rectangular_prism(translate_rectangular_prism(rotate_rectangular_prism(v, 60), 2, 4, 1), 'b')
+draw_rectangular_prism(translate_rectangular_prism(rotate_rectangular_prism(v, 60, 'z'), 2, 4, 1), 'b')
 
 plt.show()
