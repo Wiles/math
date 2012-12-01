@@ -2,11 +2,13 @@ from mpl_toolkits.mplot3d import Axes3D
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 from matplotlib.colors import colorConverter
 import matplotlib.pyplot as plt
+from texttable import *
 
 cc = lambda arg: colorConverter.to_rgba(arg, alpha=1.0)
 
 fig = plt.figure()
 ax = Axes3D(fig)
+
 ax.set_xlim(0, 10)
 ax.set_ylim(0, 10)
 ax.set_zlim(0, 10)
@@ -36,8 +38,20 @@ def rotate_rectangular_prism(v, deg, vert):
 def translate_rectangular_prism(v, x, y, z):
     return [[e[0] + x, e[1] + y, e[2] + z] for e in v]
     
+def print_points(v):
+	table = Texttable()
+	table.set_precision(4)
+	table.set_deco(Texttable.HEADER)
+	table.header(["x", "y", "z"])
+	table.set_cols_align([("r") for i in range(0, len(v[0]))])
+	[(table.add_row(row)) for row in v]
+	print table.draw()
+    
 draw_rectangular_prism(v, 'r')
-
-draw_rectangular_prism(translate_rectangular_prism(rotate_rectangular_prism(v, 60, 'z'), 2, 4, 1), 'b')
+print_points(v)
+vv = translate_rectangular_prism(rotate_rectangular_prism(v, 60, 'z'), 2, 4, 1)
+draw_rectangular_prism(vv, 'b')
+print
+print_points(vv)
 
 plt.show()
