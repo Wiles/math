@@ -14,6 +14,10 @@ ax.set_xlim(0, 10)
 ax.set_ylim(0, 10)
 ax.set_zlim(0, 10)
 
+
+plt.xlabel('X')
+plt.ylabel('Y')
+
 v = [
     (0,0,0),#0
     (3,0,0),#1
@@ -54,6 +58,7 @@ def print_points(v):
 	table = Texttable()
 	table.set_precision(4)
 	table.set_deco(Texttable.HEADER)
+	table.set_cols_dtype(['f', 'f', 'f'])
 	table.header(["x", "y", "z"])
 	table.set_cols_align([("r") for i in range(0, len(v[0]))])
 	[(table.add_row(row)) for row in v]
@@ -62,7 +67,6 @@ def print_points(v):
 draw_rectangular_prism(v, 'r')
 print_points(v)
 vv = do_math(60.0, v, 2, 4, 1)
-print vv
 draw_rectangular_prism(vv, 'b')
 print
 print_points(vv)
