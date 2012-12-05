@@ -40,8 +40,8 @@ def draw_rectangular_prism(v, col):
 def do_math(deg, v, x, y, z):
     vv = []
     matrix = [
-        [math.cos(math.radians(60.0)), -math.sin(math.radians(60.0)), 0, x],
-        [math.sin(math.radians(60.0)), math.cos(math.radians(60.0)), 0, y],
+        [math.cos(math.radians(deg)), -math.sin(math.radians(deg)), 0, x],
+        [math.sin(math.radians(deg)), math.cos(math.radians(deg)), 0, y],
         [0,0,1,z],
         [0,0,0,1]
     ]
